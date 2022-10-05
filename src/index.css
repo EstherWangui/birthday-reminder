@@ -16,10 +16,50 @@ code {
 .person img{@media screen and (min-width: 768px) {
   .person{
     grid-template-columns: repeat(3,1fr);
-  }
-  background-color: red;
+  
+ 
   height: 20px;
   width: 1000px;
 }
+}}
+.person{
+  margin-left: 400px;
+}
+.container h2{
+  align-items: center;
+  color: red;
+}
+.person img{
+  height: 700px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border-radius: 30px;
+  padding: 10px;
+  flex-basis: 50px;
+  object-fit: cover;
+  /* width: 100%;
+  height: 100%; */
+  vertical-align: middle;
+  border-radius: 5px;
 
+  /* align-items: center; */
+}
+.container button {
+  color: var(--clr-green-dark);
+  display: block;
+  width: 100%;
+ /*  border-color: transparent;
+  background: var(--clr-pink); */
+  margin: 2rem auto 0 auto;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  padding: 0.5rem 0;
+  letter-spacing: var(--spacing);
+  /* border-radius: var(--radius);
+  outline: 1px solid rgba(242, 138, 178, 0.8); */
+  cursor: pointer;
+  color: blueviolet;
 }
