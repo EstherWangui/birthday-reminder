@@ -1,22 +1,46 @@
 {
   "people": [
     {
-      "id": 1,
-      "first_name": "Sebastian",
-      "last_name": "Eschweiler",
-      "image": 
+      "id":1,
+      "name": "Debuggi Nelson",
+      "years": 45,
+      "Dateofbirth": "27/09/2022"
     },
     {
-      "id": 2,
-      "first_name": "Steve",
-      "last_name": "Palmer",
-      "email": "steve@codingthesmartway.com"
+      "id":2,
+      "name": "Daniella Laura",
+      "years": 34,
+      "Dateofbirth": "30/09/2022"
     },
     {
-      "id": 3,
-      "first_name": "Ann",
-      "last_name": "Smith",
-      "email": "ann@codingthesmartway.com"
+      "id":3,
+      "name": "Completience Ann",
+      "years": 22,
+      "Dateofbirth": "26/09/2022"
+    },
+    {
+      "id": 4,
+      "name": "jectory Lewis",
+      "years": 32,
+      "Dateofbirth": "28/9/2022"
+    },
+    {
+      "id": 5,
+      "name": "Tirerr Hassan",
+      "years": 18,
+      "Dateofbirth": "28/9/2022"
+    },
+    {
+      "id": 6,
+      "name": "underlii villie",
+      "years": 27,
+      "Dateofbirth": "28/9/2022"
+    },
+    {
+      "id": 7,
+      "name": "Mohammide Lewii",
+      "years": 28,
+      "Dateofbirth": "28/9/2022"
     }
   ]
 }

@@ -8,8 +8,7 @@ const List = ({ people }) => {
         
         return (
           <article key={id} className='person'>
-            <img  
-            style={{height: "200px" }}
+            <img
             src={image} 
             alt={name} 
             />

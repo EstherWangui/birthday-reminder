@@ -1,62 +1,58 @@
-import React, { useState } from 'react';
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 import data from './data';
+import "./App.css"
 import List from './List';
-function Login({ setIsLoggedIn }) {
-  const history = useHistory();
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-  });
-
-  function handleChange(e) {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    if(formData.username && formData.password){
-      setIsLoggedIn(true);
-      history.push("/");
-    }
+import Name from './Name';
+import Nameform from './Nameform';
 
 
-    // after logging the user in, redirect to the home page!
-  }
 function App() {
+  const[myname, setmyname] = useState([])
+  const[nameNo, setnameNo] = useState(0)
+  const[nameAdded, setnameAdded] = useState(true)
   const [people, setPeople] = useState(data);
+
+  console.log(myname)
+
+  useEffect(()=>{
+    fetch("http://localhost:3000/people")
+    .then((res)=>res.json())
+    .then((data)=>{
+       console.log(data)
+      setmyname((myname)=>data)
+      setnameNo((nameNo)=>data.length)
+    })
+  },[nameAdded])
+  console.log(nameNo)
+
+
+  let namelist = myname.map((elem, ind)=>{
+    return(
+      <Name key={ind} name={elem.name} years={elem.years} Dateofbirth={elem.Dateofbirth} />
+    )
+  })
+
+  function handleNewName(){
+    console.log("Parent function is triggered")
+    setnameAdded((nameAdded)=>!nameAdded)
+  }
+
   return (
+    <div className='section'>    
     <main>
       <section className='container'>
-      <button onClick={() => setPeople([])}>clear all</button>
-        <h2 style={{color: "blueviolet"}}>{people.length} Birthdays Today</h2>
-        <List people={people}
-              
-         />
+        <h3>{people.length} birthdays today</h3>
+        <List people={people} />
+        <button onClick={() => setPeople([])}>clear all</button>
       </section>
-      <article>
-      <form onSubmit={handleSubmit}>
-      <h1>Login</h1>
-      <input
-        type="text"
-        name="username"
-        value={formData.username}
-        onChange={handleChange}
-      />
-      <input
-        type="password"
-        name="password"
-        value={formData.password}
-        onChange={handleChange}
-      />
-      <button type="submit">Login</button>
-    </form>
-      </article>
     </main>
-  );
+    <main>
+        <Nameform formSubmitted={handleNewName} 
+        namelength={nameNo}/>
+        {namelist}
+      </main>
+    </div>
+     );
 }
-}
+
 export default App;
