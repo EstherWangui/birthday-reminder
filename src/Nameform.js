@@ -10,13 +10,13 @@ function Nameform({formSubmitted, namelength}) {
         console.log(`name is ${name}`)
         // let data = {[name]: value}
         setnewName({...newName,[name]: value})
-        
-        
+
+
     }
-    function handleAddTodo(e){
+    function handleAddName(e){
       e.preventDefault()
       console.log(newName)
-      fetch("http://localhost:3000/people",{
+      fetch("http://localhost:3000/todos",{
         // method, headers, body
         method: "POST",
         headers: {
@@ -35,18 +35,18 @@ function Nameform({formSubmitted, namelength}) {
     console.log(newName)
   return (
     <>
-      <form onSubmit={handleAddTodo}>
+      <form onSubmit={handleAddName}>
         <label>
-          Name:
+         Name:
           <input onBlur={handleInput} type="text" name="name" />
         </label>
         <label>
-          Years:
+          years:
           <input onBlur={handleInput} type="text" name="years" />
         </label>
         <label>
           Dateofbirth:
-          <input onBlur={handleInput} type="text" name="Dateofbirth" />
+          <input onBlur={handleInput} type="text" name="Dteofbirth" />
         </label>
         <input type="submit" value="Submit" />
       </form>
